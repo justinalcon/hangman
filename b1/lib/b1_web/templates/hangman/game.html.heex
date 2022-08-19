@@ -1,0 +1,16 @@
+<div id="game" class="row">
+<div class="column">
+<pre>
+  <p>
+  <%= figure_for(@tally.turns_left) %>
+  </p>
+</pre>
+</div>
+<div class="column">
+<p>Turns left: <%= @tally.turns_left %></p>
+<p>Letters Used: <%= @tally.used |> Enum.join(",") %></p>
+<p>Word So Far: <%= @tally.letters |> Enum.join(" ") %></p>
+<%= move_status(@tally.game_state) |> raw %>
+<%= continue_or_try_again(@conn, @tally.game_state) %>
+</div>
+</div>
